@@ -65,7 +65,9 @@ class App extends PureComponent {
    * @param {React.SyntheticEvent} evt
    */
   onCountdownChange(evt) {
-    if (!this.state.started) {
+    const { started } = this.state;
+
+    if (!started) {
       const timeFormatRegex = /^\d{2}:[0-5]\d$/;
       const proposedTime = evt.currentTarget.value;
       const canStart = timeFormatRegex.test(proposedTime);
