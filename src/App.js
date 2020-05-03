@@ -2,6 +2,7 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faPlayCircle, faPauseCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { PureComponent } from 'react';
+import TimeInput from './TimeInput';
 import './App.css';
 
 library.add(faPlayCircle, faPauseCircle);
@@ -157,18 +158,13 @@ class App extends PureComponent {
 
     return (
       <div className="App">
-        <div className="time-input-container">
-          <span className="countdown-label">Countdown:</span>
-          <input
-            className="countdown-input"
-            type="text"
-            placeholder="(Min)"
-            onChange={this.onCountdownChange}
-            disabled={started}
-            value={countdownValue}
+        <TimeInput
+          onCountdownChange={this.onCountdownChange}
+          started={started}
+          countdownValue={countdownValue}
+          onStartClick={this.onStartClick} 
+          startButtonEnabled={startButtonEnabled}
           />
-          <button className="countdown-button" onClick={this.onStartClick} disabled={startButtonEnabled}>START</button>
-        </div>
         <div className="halfway-container">
           <span>{halfwayLabel}</span>
         </div>
