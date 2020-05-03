@@ -52,11 +52,12 @@
   height: 25px;
   display: block;
   text-align: center;
+  margin-top: 15px;
 }
 
 .App > .time-display {
   display: flex;
-  font-size: 90px;
+  font-size: 150px;
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
