@@ -68,6 +68,10 @@
   margin-left: 30px;
 }
 
+.App > .time-display > div.step-control.disabled {
+  color: #ececec;
+}
+
 .App >.time-speed-container {
   display: flex;
   justify-content: center;
@@ -104,8 +108,4 @@
 
 .App > .time-display > span.blinky {
   animation: blinky 500ms infinite;
-}
-
-.App > div.time-display > span.times-up {
-  font-size: 90px;
 }
