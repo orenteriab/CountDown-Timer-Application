@@ -5,7 +5,6 @@ import React, { PureComponent } from 'react';
 import TimeDisplay from './TimeDisplay';
 import TimeInput from './TimeInput';
 import TimeSpeed from './TimeSpeed';
-import { convertFormattedTimeToRawTime } from './util';
 import './App.css';
 
 library.add(faPlayCircle, faPauseCircle);
@@ -67,21 +66,23 @@ class App extends PureComponent {
     const { started } = this.state;
 
     if (!started) {
-      
       const proposedTime = evt.currentTarget.value;
       this.setState(state => ({ ...state, proposedTime }));
     }
   }
 
   onStartClick() {
-    const { proposedTime } = this.state
-    const time = convertFormattedTimeToRawTime(proposedTime);
-    this.setState(state => ({
-      ...state,
-      time,
-      run: true,
-      started: true,
-    }));
+    const { proposedTime } = this.state;
+
+    if (!isNaN(proposedTime)) {
+      const time = parseInt(proposedTime) * 60;
+      this.setState(state => ({
+        ...state,
+        time,
+        run: true,
+        started: true,
+      }));
+    }
   }
 
   componentDidUpdate() {
@@ -96,7 +97,7 @@ class App extends PureComponent {
     } else if (!countdownZero) {
       this.setState(state => ({ ...state, run: false }));
     } else if (run) {
-      this.setState({ ...initialState, time: 'Time\'s up!' });
+      this.setState({ ...initialState, proposedTime:'0' });
     }
   }
 
@@ -110,24 +111,21 @@ class App extends PureComponent {
           onCountdownChange={this.onCountdownChange}
           started={started}
           proposedTime={proposedTime}
-          onStartClick={this.onStartClick} 
-          />
+          onStartClick={this.onStartClick} />
         <Halfway
           time={time}
           proposedTime={proposedTime}
           started={started} />
-        <TimeDisplay 
+        <TimeDisplay
           run={run}
           started={started}
           time={time}
-          onCountdownClick={onCountdownClick}
-        />
+          onCountdownClick={onCountdownClick} />
         <TimeSpeed
           started={started}
           speed={speed}
           onSpeedChange={this.onSpeedChange}
-          run={run}
-        />
+          run={run} />
       </div>
     );
   }
