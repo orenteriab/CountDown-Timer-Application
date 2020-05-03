@@ -12,6 +12,17 @@ const isSpeedActive = (started, speed, comparingSpeed) => {
   return started && speed === comparingSpeed ? 'active' : null;
 }
 
+/**
+ * This component is responsible for rendering the
+ * speed control on the countdown.
+ * @typedef {{
+ *  started: boolean,
+ *  speed: (1 | 1.5 | 2),
+ *  onSpeedChange: Function,
+ *  run: boolean
+ * }} Props
+ * @param {Props} props
+ */
 const TimeSpeed = ({ started, speed, onSpeedChange, run}) => {
   const isOneActive = isSpeedActive(started, speed, 1);
   const isOneAndAHalfActive = isSpeedActive(started, speed, 1.5);
