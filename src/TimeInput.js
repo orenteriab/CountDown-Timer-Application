@@ -1,8 +1,6 @@
 import React from 'react';
 
-/** Regex to validate the time is entered in the right
- * format (mm:ss).
- */
+/** Regex to validate the time is entered in the right */
 const timeFormatRegex = /^\d+$/;
 
 /**
