@@ -18,7 +18,7 @@ const isSpeedActive = (started, speed, comparingSpeed) => {
  * @typedef {{
  *  started: boolean,
  *  speed: (1 | 1.5 | 2),
- *  onSpeedChange: Function,
+ *  onSpeedChange: () => void,
  *  run: boolean
  * }} Props
  * @param {Props} props
