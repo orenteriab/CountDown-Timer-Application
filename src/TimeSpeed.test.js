@@ -11,8 +11,14 @@ describe('TimeSpeedTests', () => {
 
   test('Basic render', () => {
     const wrapper = shallow(<TimeSpeed started={false} speed={1} onSpeedChange={onSpeedChange} run={false} />);
-    expect(wrapper.exists('.time-speed-container')).toEqual(true);
-    expect(onSpeedChange).toBeCalledTimes(3);
+    
+    const container = wrapper.find('.time-speed-container');
+    expect(container.exists()).toEqual(true);
+
+    const buttons = container.find('button');
+    expect(buttons.map(button => button.hasClass('active'))).toEqual([false, false, false]);
+
+    expect(onSpeedChange).toBeCalledTimes(0);
   });
 
   describe('Disable', () => {
@@ -25,6 +31,7 @@ describe('TimeSpeedTests', () => {
       const wrapper = shallow(<TimeSpeed started={started} speed={1} onSpeedChange={onSpeedChange} run={false} />);
       const buttons = wrapper.find('.time-speed-container').find('button[disabled=true]');
       expect(buttons).toHaveLength(3);
+      expect(onSpeedChange).toBeCalledTimes(0);
     }
 
     test('Disabled before the countdown started', () => {
@@ -54,6 +61,9 @@ describe('TimeSpeedTests', () => {
 
       const currentSpeedButton = wrapper.find('.time-speed-container').find('button.active');
       expect(currentSpeedButton).toHaveLength(1);
+
+      const timesOnSpeedChangedCalled = run ? 3 : 0;
+      expect(onSpeedChange).toBeCalledTimes(timesOnSpeedChangedCalled);
 
       const { children } = currentSpeedButton.props();
       return children;
