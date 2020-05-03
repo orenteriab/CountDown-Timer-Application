@@ -2,6 +2,17 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { convertRawTime } from './util';
 
+/**
+ * This component is responsible for rendering the remaining
+ * time, and stop/pause the countdown.
+ * @typedef {{
+ *  run: boolean,
+ *  started: boolean,
+ *  time: number,
+ *  onCoundownClick: () => void
+ * }} Props
+ * @param {Props} props
+ */
 const TimeDisplay = ({ run, started, time, onCountdownClick }) => {
   const countdownIcon = !run ? 'play-circle' : 'pause-circle';
   const stepControlIcon = ['far', countdownIcon];
