@@ -43,7 +43,8 @@ class App extends PureComponent {
   }
 
   /**
-   * As divs are
+   * As divs are clickable on disable, it's needed
+   * to manage the countdown event.
    * @param {boolean} clickable
    */
   onCountdownClick(clickable) {
@@ -117,7 +118,6 @@ class App extends PureComponent {
       proposedTime,
       speed,
     } = this.state;
-    const startButtonEnabled = !canStart || started;
     const countdownValue = started ? '' : proposedTime;
     const proposedTimeInSeconds = convertFormattedTimeToRawTime(proposedTime);
     const onCountdownClick = this.onCountdownClick(started);
@@ -129,7 +129,7 @@ class App extends PureComponent {
           started={started}
           countdownValue={countdownValue}
           onStartClick={this.onStartClick} 
-          startButtonEnabled={startButtonEnabled}
+          canStart={canStart}
           />
         <Halfway
           time={time}

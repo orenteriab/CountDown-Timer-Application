@@ -1,6 +1,8 @@
 import React from 'react';
 
-const TimeInput = ({ onCountdownChange, started, countdownValue, onStartClick, startButtonEnabled }) => {
+const TimeInput = ({ onCountdownChange, started, countdownValue, onStartClick, canStart }) => {
+  const isButtonDisabled = !canStart || started;
+
   return (
     <div className="time-input-container">
       <span className="countdown-label">Countdown:</span>
@@ -15,7 +17,7 @@ const TimeInput = ({ onCountdownChange, started, countdownValue, onStartClick, s
       <button
         className="countdown-button"
         onClick={onStartClick}
-        disabled={startButtonEnabled}>
+        disabled={isButtonDisabled}>
         START
       </button>
     </div>);
