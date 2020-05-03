@@ -130,7 +130,7 @@ class App extends PureComponent {
   }
 
   isSpeedActive(speed) {
-    return this.state.started && this.state.speed === speed ? 'active' : '';
+    return this.state.started && this.state.speed === speed ? 'active' : null;
   }
 
   render() {
@@ -146,14 +146,14 @@ class App extends PureComponent {
     const startButtonEnabled = !canStart || started;
     const countdownValue = started ? '' : proposedTime;
     const timeProgress = time / convertFormattedTimeToRawTime(proposedTime);
-    const halfwayLabel = started && (timeProgress <= 0.5) ? 'More than halfway there!' : '';
+    const halfwayLabel = started && (timeProgress <= 0.5) ? 'More than halfway there!' : null;
     const twentySecondsClass = started && (time < 21) ? 'twenty-seconds' : '';
     const blinkyClass = started && (time < 11) ? 'blinky' : '';
-    const timesUpClass = isNaN(time) ? 'times-up' : '';
-    const timerClass = [twentySecondsClass, blinkyClass, timesUpClass].join(' ').trim();
+    const timerClass = [twentySecondsClass, blinkyClass].join(' ').trim() || null;
     const oneXEnabled = this.isSpeedActive(1);
     const oneAndAHalfXEnabled = this.isSpeedActive(1.5);
     const twoXEnabled = this.isSpeedActive(2);
+    const stepControlClass = ['step-control', !started ? 'disabled' : ''].join(' ').trim();
 
     return (
       <div className="App">
@@ -174,7 +174,7 @@ class App extends PureComponent {
         </div>
         <div className="time-display">
           <span className={timerClass}>{convertRawTime(time)}</span>
-          <div className="step-control" onClick={this.onCountdownClick(started)}>
+          <div className={stepControlClass} onClick={this.onCountdownClick(started)}>
             <FontAwesomeIcon icon={stepControlIcon} />
           </div>
         </div>
