@@ -11,30 +11,6 @@ library.add(faPlayCircle, faPauseCircle);
 dom.watch();
 
 /**
- * If a number is passed then, format it to show in
- * the display.
- * @param {number} unit
- */
-const makeTimeUnitDisplayable = (unit) => {
-  return unit > 9 ? String(unit) : `0${unit}`;
-};
-
-/**
- * It converts the number of seconds to a formatted
- * `mm:ss` string.
- * @param {number} seconds
- */
-const convertRawTime = (rawSeconds) => {
-  if (isNaN(rawSeconds)) return rawSeconds;
-
-  const minutes = Math.floor(rawSeconds / 60);
-  const seconds = rawSeconds - (minutes * 60);
-  const displayableMinutes = makeTimeUnitDisplayable(minutes);
-  const displayableSeconds = makeTimeUnitDisplayable(seconds);
-  return `${displayableMinutes}:${displayableSeconds}`;
-};
-
-/**
  * It takes a formatted-time string (mm:ss) and
  * converts it to seconds.
  * @param {string} formatted
@@ -141,15 +117,10 @@ class App extends PureComponent {
       proposedTime,
       speed,
     } = this.state;
-    const countdownIcon = !run ? 'play-circle' : 'pause-circle';
-    const stepControlIcon = ['far', countdownIcon];
     const startButtonEnabled = !canStart || started;
     const countdownValue = started ? '' : proposedTime;
-    const twentySecondsClass = started && (time < 21) ? 'twenty-seconds' : '';
-    const blinkyClass = started && (time < 11) ? 'blinky' : '';
-    const timerClass = [twentySecondsClass, blinkyClass].join(' ').trim() || null;
-    const stepControlClass = ['step-control', !started ? 'disabled' : ''].join(' ').trim();
-    const formattedTime = convertRawTime(time);
+    const proposedTimeInSeconds = convertFormattedTimeToRawTime(proposedTime);
+    const onCountdownClick = this.onCountdownClick(started);
 
     return (
       <div className="App">
@@ -162,14 +133,13 @@ class App extends PureComponent {
           />
         <Halfway
           time={time}
-          proposedTime={convertFormattedTimeToRawTime(proposedTime)}
+          proposedTime={proposedTimeInSeconds}
           started={started} />
         <TimeDisplay 
-          timerClass={timerClass}
-          formattedTime={formattedTime}
-          stepControlClass={stepControlClass}
-          onCountdownClick={this.onCountdownClick(started)}
-          stepControlIcon={stepControlIcon}
+          run={run}
+          started={started}
+          time={time}
+          onCountdownClick={onCountdownClick}
         />
         <TimeSpeed
           started={started}
