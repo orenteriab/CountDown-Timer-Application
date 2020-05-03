@@ -3,7 +3,10 @@ import React from 'react';
 /**
  * Verifies it the speed of the button is the one
  * active.
- * @param {(1 | 1.5 | 2)} speed
+ * @typedef {(1 | 1.5 | 2)} Speed
+ * @param {boolean} started
+ * @param {Speed} speed
+ * @param {Speed} comparingSpeed
  */
 const isSpeedActive = (started, speed, comparingSpeed) => {
   return started && speed === comparingSpeed ? 'active' : null;
