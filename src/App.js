@@ -1,6 +1,7 @@
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faPlayCircle, faPauseCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Halfway from './Halfway';
 import React, { PureComponent } from 'react';
 import TimeInput from './TimeInput';
 import './App.css';
@@ -165,9 +166,7 @@ class App extends PureComponent {
           onStartClick={this.onStartClick} 
           startButtonEnabled={startButtonEnabled}
           />
-        <div className="halfway-container">
-          <span>{halfwayLabel}</span>
-        </div>
+        <Halfway label={halfwayLabel} />
         <div className="time-display">
           <span className={timerClass}>{convertRawTime(time)}</span>
           <div className={stepControlClass} onClick={this.onCountdownClick(started)}>
