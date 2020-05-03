@@ -4,6 +4,7 @@ import Halfway from './Halfway';
 import React, { PureComponent } from 'react';
 import TimeDisplay from './TimeDisplay';
 import TimeInput from './TimeInput';
+import TimeSpeed from './TimeSpeed';
 import './App.css';
 
 library.add(faPlayCircle, faPauseCircle);
@@ -131,10 +132,6 @@ class App extends PureComponent {
     }
   }
 
-  isSpeedActive(speed) {
-    return this.state.started && this.state.speed === speed ? 'active' : null;
-  }
-
   render() {
     const {
       time,
@@ -142,6 +139,7 @@ class App extends PureComponent {
       canStart,
       started,
       proposedTime,
+      speed,
     } = this.state;
     const countdownIcon = !run ? 'play-circle' : 'pause-circle';
     const stepControlIcon = ['far', countdownIcon];
@@ -152,9 +150,6 @@ class App extends PureComponent {
     const twentySecondsClass = started && (time < 21) ? 'twenty-seconds' : '';
     const blinkyClass = started && (time < 11) ? 'blinky' : '';
     const timerClass = [twentySecondsClass, blinkyClass].join(' ').trim() || null;
-    const oneXEnabled = this.isSpeedActive(1);
-    const oneAndAHalfXEnabled = this.isSpeedActive(1.5);
-    const twoXEnabled = this.isSpeedActive(2);
     const stepControlClass = ['step-control', !started ? 'disabled' : ''].join(' ').trim();
     const formattedTime = convertRawTime(time);
 
@@ -175,11 +170,12 @@ class App extends PureComponent {
           onCountdownClick={this.onCountdownClick(started)}
           stepControlIcon={stepControlIcon}
         />
-        <div className="time-speed-container">
-          <button className={oneXEnabled} onClick={this.onSpeedChange(1)} disabled={!run}>1x</button>
-          <button className={oneAndAHalfXEnabled} onClick={this.onSpeedChange(1.5)} disabled={!run}>1.5x</button>
-          <button className={twoXEnabled} onClick={this.onSpeedChange(2)} disabled={!run}>2x</button>
-        </div>
+        <TimeSpeed
+          started={started}
+          speed={speed}
+          onSpeedChange={this.onSpeedChange}
+          run={run}
+        />
       </div>
     );
   }
