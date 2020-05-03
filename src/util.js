@@ -9,7 +9,7 @@ const makeTimeUnitDisplayable = (unit) => {
 
 /**
  * It converts the number of seconds to a formatted
- * `mm:ss` string.
+ * `MM:SS` string.
  * @param {number} rawSeconds
  * @returns {string} A formatted string
  */
@@ -21,15 +21,4 @@ export const convertRawTime = (rawSeconds) => {
   const displayableMinutes = makeTimeUnitDisplayable(minutes);
   const displayableSeconds = makeTimeUnitDisplayable(seconds);
   return `${displayableMinutes}:${displayableSeconds}`;
-};
-
-/**
- * It takes a formatted-time string (mm:ss) and
- * converts it to seconds.
- * @param {string} formatted
- * @returns {number} the representation in seconds
- */
-export const convertFormattedTimeToRawTime = (formatted) => {
-  const [minutes, seconds] = formatted.split(':');
-  return (parseInt(minutes) * 60) + parseInt(seconds);
 };
