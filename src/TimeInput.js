@@ -1,7 +1,8 @@
 import React from 'react';
 
-const TimeInput = ({ onCountdownChange, started, countdownValue, onStartClick, canStart }) => {
+const TimeInput = ({ onCountdownChange, started, proposedTime, onStartClick, canStart }) => {
   const isButtonDisabled = !canStart || started;
+  const countdownValue = started ? '' : proposedTime;
 
   return (
     <div className="time-input-container">
