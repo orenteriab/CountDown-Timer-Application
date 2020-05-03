@@ -1,8 +1,8 @@
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faPlayCircle, faPauseCircle } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Halfway from './Halfway';
 import React, { PureComponent } from 'react';
+import TimeDisplay from './TimeDisplay';
 import TimeInput from './TimeInput';
 import './App.css';
 
@@ -156,6 +156,7 @@ class App extends PureComponent {
     const oneAndAHalfXEnabled = this.isSpeedActive(1.5);
     const twoXEnabled = this.isSpeedActive(2);
     const stepControlClass = ['step-control', !started ? 'disabled' : ''].join(' ').trim();
+    const formattedTime = convertRawTime(time);
 
     return (
       <div className="App">
@@ -167,12 +168,13 @@ class App extends PureComponent {
           startButtonEnabled={startButtonEnabled}
           />
         <Halfway label={halfwayLabel} />
-        <div className="time-display">
-          <span className={timerClass}>{convertRawTime(time)}</span>
-          <div className={stepControlClass} onClick={this.onCountdownClick(started)}>
-            <FontAwesomeIcon icon={stepControlIcon} />
-          </div>
-        </div>
+        <TimeDisplay 
+          timerClass={timerClass}
+          formattedTime={formattedTime}
+          stepControlClass={stepControlClass}
+          onCountdownClick={this.onCountdownClick(started)}
+          stepControlIcon={stepControlIcon}
+        />
         <div className="time-speed-container">
           <button className={oneXEnabled} onClick={this.onSpeedChange(1)} disabled={!run}>1x</button>
           <button className={oneAndAHalfXEnabled} onClick={this.onSpeedChange(1.5)} disabled={!run}>1.5x</button>
