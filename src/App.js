@@ -49,7 +49,7 @@ class App extends PureComponent {
   }
 
   /**
-   * Handles rhe speed change
+   * Handles the speed change
    * @param {number} speed
    */
   onSpeedChange(speed) {
