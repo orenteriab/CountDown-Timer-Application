@@ -5,20 +5,11 @@ import React, { PureComponent } from 'react';
 import TimeDisplay from './TimeDisplay';
 import TimeInput from './TimeInput';
 import TimeSpeed from './TimeSpeed';
+import { convertFormattedTimeToRawTime } from './util';
 import './App.css';
 
 library.add(faPlayCircle, faPauseCircle);
 dom.watch();
-
-/**
- * It takes a formatted-time string (mm:ss) and
- * converts it to seconds.
- * @param {string} formatted
- */
-const convertFormattedTimeToRawTime = (formatted) => {
-  const [minutes, seconds] = formatted.split(':');
-  return (parseInt(minutes) * 60) + parseInt(seconds);
-};
 
 const initialState = {
   time: 0,
@@ -110,16 +101,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const {
-      time,
-      run,
-      canStart,
-      started,
-      proposedTime,
-      speed,
-    } = this.state;
-    const countdownValue = started ? '' : proposedTime;
-    const proposedTimeInSeconds = convertFormattedTimeToRawTime(proposedTime);
+    const { time, run, canStart, started, proposedTime, speed } = this.state;
     const onCountdownClick = this.onCountdownClick(started);
 
     return (
@@ -127,13 +109,13 @@ class App extends PureComponent {
         <TimeInput
           onCountdownChange={this.onCountdownChange}
           started={started}
-          countdownValue={countdownValue}
+          proposedTime={proposedTime}
           onStartClick={this.onStartClick} 
           canStart={canStart}
           />
         <Halfway
           time={time}
-          proposedTime={proposedTimeInSeconds}
+          proposedTime={proposedTime}
           started={started} />
         <TimeDisplay 
           run={run}
