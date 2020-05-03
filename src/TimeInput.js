@@ -12,7 +12,6 @@ const timeFormatRegex = /^\d{2}:[0-5]\d$/;
  *  started: boolean,
  *  propsedTime: string,
  *  onStartClick: () => void,
- * canStart: boolean
  * }} Props
  * @param {Props} props
  */
