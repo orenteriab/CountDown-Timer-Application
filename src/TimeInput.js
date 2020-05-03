@@ -1,5 +1,10 @@
 import React from 'react';
 
+/** Regex to validate the time is entered in the right
+ * format (mm:ss).
+ */
+const timeFormatRegex = /^\d{2}:[0-5]\d$/;
+
 /**
  * This component is reponsible for handling the time input.
  * @typedef {{
@@ -11,7 +16,8 @@ import React from 'react';
  * }} Props
  * @param {Props} props
  */
-const TimeInput = ({ onCountdownChange, started, proposedTime, onStartClick, canStart }) => {
+const TimeInput = ({ onCountdownChange, started, proposedTime, onStartClick }) => {
+  const canStart = timeFormatRegex.test(proposedTime);
   const isButtonDisabled = !canStart || started;
   const countdownValue = started ? '' : proposedTime;
 

@@ -17,7 +17,6 @@ const initialState = {
   basePace: 1000,
   actualPace: 1000,
   proposedTime: '',
-  canStart: false,
   started: false,
   speed: 1,
 };
@@ -68,10 +67,9 @@ class App extends PureComponent {
     const { started } = this.state;
 
     if (!started) {
-      const timeFormatRegex = /^\d{2}:[0-5]\d$/;
+      
       const proposedTime = evt.currentTarget.value;
-      const canStart = timeFormatRegex.test(proposedTime);
-      this.setState(state => ({ ...state, canStart, proposedTime }));
+      this.setState(state => ({ ...state, proposedTime }));
     }
   }
 
@@ -103,7 +101,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const { time, run, canStart, started, proposedTime, speed } = this.state;
+    const { time, run, started, proposedTime, speed } = this.state;
     const onCountdownClick = this.onCountdownClick(started);
 
     return (
@@ -113,7 +111,6 @@ class App extends PureComponent {
           started={started}
           proposedTime={proposedTime}
           onStartClick={this.onStartClick} 
-          canStart={canStart}
           />
         <Halfway
           time={time}

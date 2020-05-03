@@ -14,15 +14,13 @@ test('Renders app with state values', () => {
     proposedTime,
     started,
     run,
-    canStart,
     speed
   } = rootWrapper.state()
   const timeInput = (<TimeInput
     onCountdownChange={appInstance.onCountdownChange}
     started={started}
     proposedTime={proposedTime}
-    onStartClick={appInstance.onStartClick} 
-    canStart={canStart} />);
+    onStartClick={appInstance.onStartClick} />);
   const halfway = (<Halfway
     time={time}
     proposedTime={proposedTime}
