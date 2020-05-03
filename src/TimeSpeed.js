@@ -18,7 +18,7 @@ const isSpeedActive = (started, speed, comparingSpeed) => {
  * @typedef {{
  *  started: boolean,
  *  speed: (1 | 1.5 | 2),
- *  onSpeedChange: () => void,
+ *  onSpeedChange: (speed: number) => () => void,
  *  run: boolean
  * }} Props
  * @param {Props} props
@@ -27,12 +27,13 @@ const TimeSpeed = ({ started, speed, onSpeedChange, run}) => {
   const isOneActive = isSpeedActive(started, speed, 1);
   const isOneAndAHalfActive = isSpeedActive(started, speed, 1.5);
   const isTwoActive = isSpeedActive(started, speed, 2);
+  const speedChangeClick = run ? onSpeedChange : Function;
 
   return (
     <div className="time-speed-container">
-      <button className={isOneActive} onClick={onSpeedChange(1)} disabled={!run}>1x</button>
-      <button className={isOneAndAHalfActive} onClick={onSpeedChange(1.5)} disabled={!run}>1.5x</button>
-      <button className={isTwoActive} onClick={onSpeedChange(2)} disabled={!run}>2x</button>
+      <button className={isOneActive} onClick={speedChangeClick(1)} disabled={!run}>1x</button>
+      <button className={isOneAndAHalfActive} onClick={speedChangeClick(1.5)} disabled={!run}>1.5x</button>
+      <button className={isTwoActive} onClick={speedChangeClick(2)} disabled={!run}>2x</button>
     </div>
   );
 };
