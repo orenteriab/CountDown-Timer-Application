@@ -145,8 +145,6 @@ class App extends PureComponent {
     const stepControlIcon = ['far', countdownIcon];
     const startButtonEnabled = !canStart || started;
     const countdownValue = started ? '' : proposedTime;
-    const timeProgress = time / convertFormattedTimeToRawTime(proposedTime);
-    const halfwayLabel = started && (timeProgress <= 0.5) ? 'More than halfway there!' : null;
     const twentySecondsClass = started && (time < 21) ? 'twenty-seconds' : '';
     const blinkyClass = started && (time < 11) ? 'blinky' : '';
     const timerClass = [twentySecondsClass, blinkyClass].join(' ').trim() || null;
@@ -162,7 +160,10 @@ class App extends PureComponent {
           onStartClick={this.onStartClick} 
           startButtonEnabled={startButtonEnabled}
           />
-        <Halfway label={halfwayLabel} />
+        <Halfway
+          time={time}
+          proposedTime={convertFormattedTimeToRawTime(proposedTime)}
+          started={started} />
         <TimeDisplay 
           timerClass={timerClass}
           formattedTime={formattedTime}
