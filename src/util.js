@@ -14,8 +14,6 @@ const makeTimeUnitDisplayable = (unit) => {
  * @returns {string} A formatted string
  */
 export const convertRawTime = (rawSeconds) => {
-  if (isNaN(rawSeconds)) return rawSeconds;
-
   const minutes = Math.floor(rawSeconds / 60);
   const seconds = rawSeconds - (minutes * 60);
   const displayableMinutes = makeTimeUnitDisplayable(minutes);
