@@ -45,4 +45,4 @@ As `gh-pages` hosts the application, you only need access to the repository and 
 
 ## Walkthrough video
 
-![Walkthrough video](public/walkthrough/walkthrough.flv)
+![Walkthrough video](https://youtu.be/mGKGwhPJFHk)
