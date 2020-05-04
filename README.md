@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Countdown Time Application
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+This is simple app that let you configure a timer, with the following features:
 
-### `yarn start`
+- The user must to enter a positive integer in order to initialize the countdown.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- The time display format is MM:SS.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- The user can pause and resume the countdown.
 
-### `yarn test`
+- When the contdown is active, the user can speed up or slow down by 1x, 1.5x, or 2x.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Once the countdown is at 50%, the application will tell you with a label: “More than halfway there!”
 
-### `yarn build`
+- Once the countdown is 0, that label stated above will change to: “Time’s up!” (and make some sound :D).
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- When the countdown hits 20 seconds left, the time displayed should be red.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- At 10 seconds, the timer text should blink.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Development
 
-### `yarn eject`
+The scaffold was created using `create-react-app`, and the package manager is yarn.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The app structure is pretty simple:
+- `src`: Contains all the source code, components, and tests styles.
+- `public`: Contains the static resources.
+- `build`: This folder will be generated when you run `yarn build` or `yarn deploy`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+As `gh-pages` hosts the application, you only need access to the repository and type `yarn deploy` to deploy.
