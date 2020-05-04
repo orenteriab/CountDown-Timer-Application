@@ -33,6 +33,10 @@ The app structure is pretty simple:
 
 As `gh-pages` hosts the application, you only need access to the repository and type `yarn deploy` to deploy.
 
+## Watch it live!
+
+Here you can find a live version: https://orenteriab.github.io/CountDown-Timer-Application/
+
 ## Screenshots
 
 ![First Screenshot](public/screenshots/ssh_00.png)
