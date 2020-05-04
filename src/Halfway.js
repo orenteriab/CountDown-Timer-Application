@@ -1,5 +1,13 @@
 import React from 'react';
 
+export const SoundNotification = {
+  apply() {
+    const source = `${process.env.PUBLIC_URL}/notification.mp3`;
+    const audio = new Audio(source);
+    return audio.play();
+  }
+};
+
 /**
  * This component is responsible for the notification of
  * when the time is past halfway.
@@ -16,6 +24,10 @@ const Halfway = ({ time, proposedTime, started }) => {
   const timesUpOrNull = proposedTime === '0' ? 'Time\'s up!' : null;
   const label = started && isProgressHalfOrLess ? 'More than halfway there!' : timesUpOrNull;
   const labelRendering = label !== null ? (<span>{label}</span>) : null;
+
+  if (timesUpOrNull) {
+    SoundNotification.apply();
+  }
 
   return (
     <div className="halfway-container">
