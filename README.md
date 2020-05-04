@@ -1,6 +1,6 @@
 # Countdown Time Application
 
-## Features
+## Features
 
 This is simple app that let you configure a timer, with the following features:
 
@@ -29,6 +29,16 @@ The app structure is pretty simple:
 - `public`: Contains the static resources.
 - `build`: This folder will be generated when you run `yarn build` or `yarn deploy`
 
-# Deployment
+## Deployment
 
 As `gh-pages` hosts the application, you only need access to the repository and type `yarn deploy` to deploy.
+
+## Screenshots
+
+![First Screenshot](public/screenshots/ssh_00.png)
+![Second Screenshot](public/screenshots/ssh_01.png)
+![Third Screenshot](public/screenshots/ssh_02.png)
+![Fourth Screenshot](public/screenshots/ssh_03.png)
+![Fifth Screenshot](public/screenshots/ssh_04.png)
+![Sixth Screenshot](public/screenshots/ssh_05.png)
+![Seventh Screenshot](public/screenshots/ssh_06.png)
