@@ -29,6 +29,11 @@
   line-height: 20px;
 }
 
+.App > .time-input-container > .countdown-input:disabled,
+.App > .time-input-container > .countdown-button:disabled {
+  cursor: not-allowed;
+}
+
 .App > .time-input-container > .countdown-input:disabled {
   border: solid 3px #ececec;
 }
