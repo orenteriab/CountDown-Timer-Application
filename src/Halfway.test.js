@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import Halfway from './Halfway';
+import Halfway, { SoundNotification } from './Halfway';
 import React from 'react';
 
 /**
@@ -43,7 +43,13 @@ describe('Must show', () => {
   });
 
   test('Time\'s up', () => {
+    const spy = jest
+      .spyOn(SoundNotification, 'apply')
+      .mockResolvedValue();
+
     structureBuilder("0", 0, false, true, 'Time\'s up!');
+    expect(SoundNotification.apply).toBeCalled();
+    spy.mockRestore();
   });
 });
 
