@@ -12,6 +12,11 @@ test('Regular', () => {
 });
 
 describe('Time style changes', () => {
+  /**
+   * Test builder template
+   * @param {number} time
+   * @param {string} selector
+   */
   const testBuilder = (time, selector) => {
     const wrapper = shallow(<TimeDisplay onCountdownClick={onCountDownClick} run={true} started={true} time={time} />);
     const timeDisplay = wrapper.find(selector);
@@ -28,6 +33,11 @@ describe('Time style changes', () => {
 });
 
 describe('Countdown control', () => {
+  /**
+   * Test builder template
+   * @param {boolean} run
+   * @param {string} circleClass
+   */
   const testBuilder = (run, circleClass) => {
     const wrapper = shallow(<TimeDisplay onCountdownClick={onCountDownClick} run={run} started={true} time={10} />);
     const playOrPause = wrapper.find('div.time-display > div.step-control');
