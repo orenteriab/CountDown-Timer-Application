@@ -42,3 +42,7 @@ As `gh-pages` hosts the application, you only need access to the repository and 
 ![Fifth Screenshot](public/screenshots/ssh_04.png)
 ![Sixth Screenshot](public/screenshots/ssh_05.png)
 ![Seventh Screenshot](public/screenshots/ssh_06.png)
+
+## Walkthrough video
+
+![Walkthrough video](public/walkthrough/walkthrough.flv)
