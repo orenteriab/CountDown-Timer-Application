@@ -1,5 +1,6 @@
 {
   "name": "deep-consulting-frontend",
+  "homepage": "http://orenteriab.github.io/CountDown-Timer-Application",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,6 +15,8 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "predeploy": "rm -rf ./build",
+    "deploy": "(yarn predeploy) && (yarn) && (yarn build) && (gh-pages -d build)",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,6 +41,7 @@
     "@types/jest": "^25.2.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "gh-pages": "^2.2.0",
     "react-test-renderer": "^16.13.1"
   }
 }
