@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/CountDown-Timer-Application/static/css/main.a1be818f.chunk.css",
-    "main.js": "/CountDown-Timer-Application/static/js/main.2b928c24.chunk.js",
-    "main.js.map": "/CountDown-Timer-Application/static/js/main.2b928c24.chunk.js.map",
+    "main.css": "/CountDown-Timer-Application/static/css/main.00e33142.chunk.css",
+    "main.js": "/CountDown-Timer-Application/static/js/main.a3038cd8.chunk.js",
+    "main.js.map": "/CountDown-Timer-Application/static/js/main.a3038cd8.chunk.js.map",
     "runtime-main.js": "/CountDown-Timer-Application/static/js/runtime-main.f8f1cc65.js",
     "runtime-main.js.map": "/CountDown-Timer-Application/static/js/runtime-main.f8f1cc65.js.map",
     "static/js/2.61773b5b.chunk.js": "/CountDown-Timer-Application/static/js/2.61773b5b.chunk.js",
     "static/js/2.61773b5b.chunk.js.map": "/CountDown-Timer-Application/static/js/2.61773b5b.chunk.js.map",
     "index.html": "/CountDown-Timer-Application/index.html",
-    "precache-manifest.99d6fee8e153ecb264ed7957003f9634.js": "/CountDown-Timer-Application/precache-manifest.99d6fee8e153ecb264ed7957003f9634.js",
+    "precache-manifest.24af1db231891c965327a00d08f5b659.js": "/CountDown-Timer-Application/precache-manifest.24af1db231891c965327a00d08f5b659.js",
     "service-worker.js": "/CountDown-Timer-Application/service-worker.js",
-    "static/css/main.a1be818f.chunk.css.map": "/CountDown-Timer-Application/static/css/main.a1be818f.chunk.css.map",
+    "static/css/main.00e33142.chunk.css.map": "/CountDown-Timer-Application/static/css/main.00e33142.chunk.css.map",
     "static/js/2.61773b5b.chunk.js.LICENSE.txt": "/CountDown-Timer-Application/static/js/2.61773b5b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f8f1cc65.js",
     "static/js/2.61773b5b.chunk.js",
-    "static/css/main.a1be818f.chunk.css",
-    "static/js/main.2b928c24.chunk.js"
+    "static/css/main.00e33142.chunk.css",
+    "static/js/main.a3038cd8.chunk.js"
   ]
 }
